@@ -20,7 +20,7 @@ File>Settings...를 누른다.<br>
 Build and run using... 과 Run test using... 을 IntelliJ IDEA로 변경한다.<br>
 ![image](https://user-images.githubusercontent.com/87855493/236627785-a0941c13-9277-4ec9-a747-cfcb6a3cada1.png)
 GoosukkiApplication.java를 클릭하여 띄운다.<br>
-7번째 줄인 public class GoosukkiApplication{ 좌측에 있는 초록색 재생 버튼을 눌러 프로그램을 실행시킨다. (만약 초록 재생 버튼이 안 뜬다면 아직 빌드가 덜 된 것이므로 5분 정도 기다리세요)
+7번째 줄인 "public class GoosukkiApplication {" 좌측에 있는 초록색 재생 버튼을 눌러 프로그램을 실행시킨다. (만약 초록 재생 버튼이 안 뜬다면 아직 빌드가 덜 된 것이므로 5분 정도 기다리세요)
 
 ### 개발 현황
 
