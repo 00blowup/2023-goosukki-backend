@@ -4,6 +4,7 @@ package capstone.part1.goosukki.service;
 
 import capstone.part1.goosukki.domain.Member;
 import capstone.part1.goosukki.dto.DuplicateIdRequestDto;
+import capstone.part1.goosukki.dto.DuplicateNicknameRequestDto;
 import capstone.part1.goosukki.dto.DuplicateResponseDto;
 import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.*;
@@ -62,7 +63,7 @@ public class MemberService {
         }
     }
 
-    // 중복되는 아이디를 가진 회원이 있는지 체크하는 함수
+    // ID 중복 여부를 조회
     public DuplicateResponseDto duplicateId(DuplicateIdRequestDto requestDto) {
         String id = requestDto.getId();
         System.out.println(id);
@@ -86,6 +87,34 @@ public class MemberService {
         }
         if (check) System.out.println("ID not duplicated");
         else System.out.println("ID duplicated");
+        // 점검 결과를 DTO에 담아 리턴
+        return new DuplicateResponseDto(check);
+    }
+
+    // 닉네임 중복 여부를 조회
+    public DuplicateResponseDto duplicateNickname(DuplicateNicknameRequestDto requestDto) {
+        String nickname = requestDto.getNickname();
+        System.out.println(nickname);
+        dbFirestore = FirestoreClient.getFirestore();
+        // 파이어베이스의 회원 정보 중, 해당 닉네임을 가진 회원정보만 받아오기
+        CollectionReference members = dbFirestore.collection(COLLECTION_NAME);
+        Query query = members.whereEqualTo("nickname", nickname);
+        ApiFuture<QuerySnapshot> querySnapshot = query.get();
+
+        // 받아온 리스트가 비어있는지 점검
+        boolean check = true;
+        try {
+            for (DocumentSnapshot document : querySnapshot.get().getDocuments()) {
+                // 리스트에 요소가 하나 들어있다면 check의 값을 false로 변경
+                check = false;
+            }
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        } catch (ExecutionException e) {
+            throw new RuntimeException(e);
+        }
+        if (check) System.out.println("nickname not duplicated");
+        else System.out.println("nickname duplicated");
         // 점검 결과를 DTO에 담아 리턴
         return new DuplicateResponseDto(check);
     }
