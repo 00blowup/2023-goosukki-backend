@@ -1,13 +1,12 @@
 package capstone.part1.goosukki.controller;
 
 import capstone.part1.goosukki.domain.Member;
+import capstone.part1.goosukki.dto.DuplicateIdRequestDto;
+import capstone.part1.goosukki.dto.DuplicateResponseDto;
 import capstone.part1.goosukki.service.MemberService;
 import capstone.part1.goosukki.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.concurrent.ExecutionException;
 
@@ -21,5 +20,10 @@ public class FirebaseMemberController {
     @PostMapping("/members")
     public String saveMember(@RequestBody Member member) throws ExecutionException {
         return memberService.saveMember(member);
+    }
+
+    @GetMapping("/members/duplicate/id")
+    public DuplicateResponseDto DuplicateId (@RequestBody DuplicateIdRequestDto requestDto) {
+        return memberService.duplicateId(requestDto);
     }
 }

@@ -3,6 +3,8 @@
 package capstone.part1.goosukki.service;
 
 import capstone.part1.goosukki.domain.Member;
+import capstone.part1.goosukki.dto.DuplicateIdRequestDto;
+import capstone.part1.goosukki.dto.DuplicateResponseDto;
 import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.*;
 import com.google.firebase.cloud.FirestoreClient;
@@ -14,17 +16,18 @@ import java.util.concurrent.ExecutionException;
 @Service
 public class MemberService {
 
+    // 사용할 데이터베이스
+    private static Firestore dbFirestore;
+
     private static final String COLLECTION_NAME = "members";
 
     private long sequence = 1L;
 
     public String saveMember (Member member) {
-
-        // 사용할 데이터베이스
-        Firestore dbFirestore = FirestoreClient.getFirestore();
+        dbFirestore = FirestoreClient.getFirestore();
 
         // 가장 최근에 가입된 회원 한 명의 데이터 가져오기
-        Query query = dbFirestore.collection("members").orderBy("sequence", Query.Direction.DESCENDING).limit(1);
+        Query query = dbFirestore.collection(COLLECTION_NAME).orderBy("sequence", Query.Direction.DESCENDING).limit(1);
         ApiFuture<QuerySnapshot> future = query.get();
         List<QueryDocumentSnapshot> documents = null;
         try {
@@ -57,5 +60,33 @@ public class MemberService {
             e.printStackTrace();
             return "memberService failed";
         }
+    }
+
+    // 중복되는 아이디를 가진 회원이 있는지 체크하는 함수
+    public DuplicateResponseDto duplicateId(DuplicateIdRequestDto requestDto) {
+        String id = requestDto.getId();
+        System.out.println(id);
+        dbFirestore = FirestoreClient.getFirestore();
+        // 파이어베이스의 회원 정보 중, 해당 아이디를 가진 회원정보만 받아오기
+        CollectionReference members = dbFirestore.collection(COLLECTION_NAME);
+        Query query = members.whereEqualTo("id", id);
+        ApiFuture<QuerySnapshot> querySnapshot = query.get();
+
+        // 받아온 리스트가 비어있는지 점검
+        boolean check = true;
+        try {
+            for (DocumentSnapshot document : querySnapshot.get().getDocuments()) {
+                // 리스트에 요소가 하나 들어있다면 check의 값을 false로 변경
+                check = false;
+            }
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        } catch (ExecutionException e) {
+            throw new RuntimeException(e);
+        }
+        if (check) System.out.println("ID not duplicated");
+        else System.out.println("ID duplicated");
+        // 점검 결과를 DTO에 담아 리턴
+        return new DuplicateResponseDto(check);
     }
 }
