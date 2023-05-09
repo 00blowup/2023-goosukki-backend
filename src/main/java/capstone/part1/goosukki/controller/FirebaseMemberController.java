@@ -24,12 +24,12 @@ public class FirebaseMemberController {
     }
 
     @GetMapping("/duplicate/id")
-    public DuplicateResponseDto DuplicateId (@RequestBody DuplicateIdRequestDto requestDto) {
-        return memberService.duplicateId(requestDto);
+    public DuplicateResponseDto DuplicateId (@RequestParam String id) {
+        return memberService.duplicateId(id);
     }
 
     @GetMapping("/duplicate/nickname")
-    public DuplicateResponseDto DuplicateNickname (@RequestBody DuplicateNicknameRequestDto requestDto) {
-        return memberService.duplicateNickname(requestDto);
+    public DuplicateResponseDto DuplicateNickname (@RequestParam String nickname) {
+        return memberService.duplicateNickname(nickname);
     }
 }

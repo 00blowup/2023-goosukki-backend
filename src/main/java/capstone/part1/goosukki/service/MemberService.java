@@ -64,8 +64,7 @@ public class MemberService {
     }
 
     // ID 중복 여부를 조회
-    public DuplicateResponseDto duplicateId(DuplicateIdRequestDto requestDto) {
-        String id = requestDto.getId();
+    public DuplicateResponseDto duplicateId(String id) {
         System.out.println(id);
         dbFirestore = FirestoreClient.getFirestore();
         // 파이어베이스의 회원 정보 중, 해당 아이디를 가진 회원정보만 받아오기
@@ -92,8 +91,7 @@ public class MemberService {
     }
 
     // 닉네임 중복 여부를 조회
-    public DuplicateResponseDto duplicateNickname(DuplicateNicknameRequestDto requestDto) {
-        String nickname = requestDto.getNickname();
+    public DuplicateResponseDto duplicateNickname(String nickname) {
         System.out.println(nickname);
         dbFirestore = FirestoreClient.getFirestore();
         // 파이어베이스의 회원 정보 중, 해당 닉네임을 가진 회원정보만 받아오기
