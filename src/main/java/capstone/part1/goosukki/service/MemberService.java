@@ -3,8 +3,6 @@
 package capstone.part1.goosukki.service;
 
 import capstone.part1.goosukki.domain.Member;
-import capstone.part1.goosukki.dto.DuplicateIdRequestDto;
-import capstone.part1.goosukki.dto.DuplicateNicknameRequestDto;
 import capstone.part1.goosukki.dto.DuplicateResponseDto;
 import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.*;
