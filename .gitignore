@@ -38,5 +38,3 @@ out/
 
 ### Firebase Secret ###
 serviceAccountKey.json
-!**/src/main/resources/application.yml
-.yml

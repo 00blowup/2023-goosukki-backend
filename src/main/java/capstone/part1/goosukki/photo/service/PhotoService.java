@@ -33,8 +33,7 @@ public class PhotoService {
     private long sequence = 1L;
 
     // 파이어베이스 버킷명
-    @Value("${app.firebase-bucket}")
-    private String firebaseBucket;
+    private String firebaseBucket = "springrestdemo1.appspot.com";
 
     // 유저의 프로필 사진을 변경
     public PhotoUploadResponseDto changeProfile(String memberId, MultipartFile file) throws IOException, FirebaseAuthException, ExecutionException, InterruptedException {
