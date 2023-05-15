@@ -28,8 +28,7 @@
 이때 이 파일의 이름은 serviceAccountKey.json 이어야 합니다!<br>
 이 파일은 타인에게 노출되면 안 되기 때문에 깃허브에 올려지지 않습니다. 깃이그노어에도 포함되어있습니다.<br><br>
 ### 서버 실행하기
-이 레포지토리를 클론해서 받는다.<br>
-IntelliJ에서 해당 레포지토리를 연다.<br>
+IntelliJ에서 해당 리포지토리를 연다.<br>
 File>Settings...를 누른다.<br>
 ![image](https://user-images.githubusercontent.com/87855493/236627678-3352248c-12a7-4194-967f-501381f1ddb6.png)
 뜬 창의 좌측 상단에 있는 검색창에 gradle을 검색한다.<br>
