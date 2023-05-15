@@ -27,7 +27,7 @@
 <img width="80%" src="https://i.imgur.com/7sZXhS5.jpg"/></br>
 <img width="80%" src="https://i.imgur.com/M9Y0XFi.jpg"/></br>
 <img width="80%" src="https://i.imgur.com/v5QlX11.jpg"/></br>
-이때 이 파일의 이름은 serviceAccountKey.json 이어야 합니다!<br>
+받으셨다면 파일의 이름을 serviceAccountKey.json 으로 바꾸어 최상위폴더에 넣어주세요!!!!!<br>
 <br><br>
 ### 서버 실행하기
 IntelliJ에서 해당 리포지토리를 연다.<br>
