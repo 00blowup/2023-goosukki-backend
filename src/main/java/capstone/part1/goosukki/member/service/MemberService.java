@@ -46,6 +46,8 @@ public class MemberService {
 
         // Member 객체에 sequence 값 반영하기
         member.setSequence(Long.toString(sequence));
+        // 기본 프로필 사진 지정하기
+        member.setPhoto(0L);
 
         // 데이터베이스에 Member 객체를 저장
         ApiFuture<WriteResult> collectionApiFuture = dbFirestore.collection(COLLECTION_NAME).document(member.getSequence()).set(member);
