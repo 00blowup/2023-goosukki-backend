@@ -20,13 +20,15 @@
 해당 리포지토리의 코드를 클론받아서 로컬에 저장하세요. 그 후 다음의 과정을 따라하세요.<br>
 ### 시크릿 키 파일 다운받기
 파이어베이스 콘솔에서 시크릿 키 파일을 다운받아 최상위폴더에 넣어줘야 실행이 됩니다!!<br>
+이 파일은 타인에게 노출되면 안 되기 때문에 깃허브에 올려지지 않습니다. 깃이그노어에도 포함되어있습니다.<br>
+그래서 여러분이 직접 파이어베이스 콘솔에서 받아오셔야 합니다.<br>
 받는 법: 파이어베이스 콘솔 접속>좌측 상단 톱니바퀴>사용자 및 권한>서비스 계정 탭>새 비공개 키 생성 버튼 클릭<br>
 <img width="80%" src="https://i.imgur.com/7zgCjsH.jpg"/></br>
 <img width="80%" src="https://i.imgur.com/7sZXhS5.jpg"/></br>
 <img width="80%" src="https://i.imgur.com/M9Y0XFi.jpg"/></br>
 <img width="80%" src="https://i.imgur.com/v5QlX11.jpg"/></br>
 이때 이 파일의 이름은 serviceAccountKey.json 이어야 합니다!<br>
-이 파일은 타인에게 노출되면 안 되기 때문에 깃허브에 올려지지 않습니다. 깃이그노어에도 포함되어있습니다.<br><br>
+<br><br>
 ### 서버 실행하기
 IntelliJ에서 해당 리포지토리를 연다.<br>
 File>Settings...를 누른다.<br>
