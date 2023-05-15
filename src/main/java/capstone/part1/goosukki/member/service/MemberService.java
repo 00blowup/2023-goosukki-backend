@@ -1,9 +1,9 @@
 //
 
-package capstone.part1.goosukki.service;
+package capstone.part1.goosukki.member.service;
 
-import capstone.part1.goosukki.domain.Member;
-import capstone.part1.goosukki.dto.DuplicateResponseDto;
+import capstone.part1.goosukki.member.domain.Member;
+import capstone.part1.goosukki.member.dto.DuplicateResponseDto;
 import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.*;
 import com.google.firebase.cloud.FirestoreClient;

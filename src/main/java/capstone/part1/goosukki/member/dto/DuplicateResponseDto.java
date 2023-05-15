@@ -1,4 +1,4 @@
-package capstone.part1.goosukki.dto;
+package capstone.part1.goosukki.member.dto;
 
 import lombok.AccessLevel;
 import lombok.Getter;
