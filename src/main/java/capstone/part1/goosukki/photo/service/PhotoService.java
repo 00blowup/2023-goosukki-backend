@@ -1,6 +1,5 @@
 package capstone.part1.goosukki.photo.service;
 
-import capstone.part1.goosukki.member.domain.Member;
 import capstone.part1.goosukki.photo.domain.Photo;
 import capstone.part1.goosukki.photo.dto.PhotoUploadResponseDto;
 import com.google.api.core.ApiFuture;
@@ -10,7 +9,6 @@ import com.google.cloud.storage.Bucket;
 import com.google.firebase.auth.FirebaseAuthException;
 import com.google.firebase.cloud.FirestoreClient;
 import com.google.firebase.cloud.StorageClient;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
