@@ -18,13 +18,13 @@ public class Post {
     private String writer;      // 작성자의 고유 순번
     private String title;       // 게시글의 제목
     private List<String> files; // 게시글에 포함된 사진&동영상들의 고유 순번 리스트
-    private String latitude;    // 게시글의 위도
-    private String longitude;   // 게시글의 경도
+    private Double latitude;    // 게시글의 위도
+    private Double longitude;   // 게시글의 경도
     private String placename;   // 게시글의 장소명
     private List<String> liked; // 좋아요를 누른 회원들의 고유 순번 리스트
     private Boolean secret;     // 비밀글 여부 (true면 작성자만 볼 수 있는 게시글임)
 
-    public Post (String writer, String title, List<String> files, String latitude, String longitude, String placename, Boolean secret) {
+    public Post (String writer, String title, List<String> files, Double latitude, Double longitude, String placename, Boolean secret) {
         this.writer = writer;
         this.title = title;
         this.files = files;

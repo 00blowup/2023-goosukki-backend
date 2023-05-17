@@ -82,8 +82,10 @@ public class PhotoService {
     // 사진을 하나 업로드하고, 그 사진에 부여된 고유 번호를 리턴하는 함수
     public Long uploadPhoto (MultipartFile file) throws IOException {
         // 파일명이 겹치면 안 되므로, 현재시각을 파일명으로 설정
-        LocalDateTime now = LocalDateTime.now();
-        String fileName = now.format(DateTimeFormatter.ofPattern("YYYYMMddHHmmss"));
+        // LocalDateTime now = LocalDateTime.now();
+        // String fileName = now.format(DateTimeFormatter.ofPattern("YYYYMMddHHmmss"));
+        // 초 단위까지만 반영하니까 1초 이하의 시간차를 두고 저장된 파일끼리 이름이 겹쳐서... 밀리초 단위로 바꿈
+        String fileName = Long.toString(System.currentTimeMillis());    // 1970년 1월 1일 이후 몇 밀리세컨드 경과했는지
         // 버켓정보 설정
         Bucket bucket = StorageClient.getInstance().bucket(firebaseBucket);
         InputStream content = new ByteArrayInputStream(file.getBytes());

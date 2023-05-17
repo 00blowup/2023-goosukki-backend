@@ -9,8 +9,8 @@ public class PostCreateRequestDto {
 
     private String writer;
     private String title;
-    private String latitude;
-    private String longitude;
+    private Double latitude;
+    private Double longitude;
     private String placename;
     private Boolean secret;
 
