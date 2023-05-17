@@ -1,12 +1,13 @@
 package capstone.part1.goosukki.photo.domain;
 
+import lombok.AccessLevel;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Data
 @Getter
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Photo {
 
     // 고유 번호

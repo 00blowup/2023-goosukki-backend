@@ -18,6 +18,7 @@ public class MemberService {
     // 사용할 데이터베이스
     private static Firestore dbFirestore;
 
+    // 회원 정보가 저장될 컬렉션의 이름
     private static final String COLLECTION_NAME = "members";
 
     private long sequence = 1L;
@@ -50,7 +51,7 @@ public class MemberService {
         member.setPhoto(0L);
 
         // 데이터베이스에 Member 객체를 저장
-        ApiFuture<WriteResult> collectionApiFuture = dbFirestore.collection(COLLECTION_NAME).document(member.getSequence()).set(member);
+        ApiFuture<WriteResult> collectionApiFuture = dbFirestore.collection(COLLECTION_NAME).document(Long.toString(sequence)).set(member);
 
         try {
             return collectionApiFuture.get().getUpdateTime().toString();

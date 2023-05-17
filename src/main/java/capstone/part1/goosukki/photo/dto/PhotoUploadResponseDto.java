@@ -8,12 +8,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class PhotoUploadResponseDto {
     Long sequence;    // 파이어베이스 Firestore Database에 저장된 파일 고유 번호
-    String fileName;    // 파이어베이스 스토리지에 저장된 파일명
-    String fileLocation;    // 파이어베이스 스토리지 상의 파일 위치
 
-    public PhotoUploadResponseDto (Long sequence, String fileName, String fileLocation) {
+    public PhotoUploadResponseDto (Long sequence) {
         this.sequence = sequence;
-        this.fileName = fileName;
-        this.fileLocation = fileLocation;
     }
 }
