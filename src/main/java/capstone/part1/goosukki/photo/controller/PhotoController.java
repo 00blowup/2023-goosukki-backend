@@ -25,4 +25,6 @@ public class PhotoController {
         return photoService.changeProfile(memberId, file);
     }
 
+    // 사진 고유 번호를 기준으로 사진 파일과 캡션을 리턴
+
 }

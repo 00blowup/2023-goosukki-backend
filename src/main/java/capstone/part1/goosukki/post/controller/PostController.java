@@ -32,4 +32,9 @@ public class PostController {
         List<String> fileSequences = photoService.uploadPostsPhotos(files, captions, requestDto);
         return postService.addPost(fileSequences, requestDto);
     }
+
+    // AR 카메라 실행 시, 유저의 현재 위도&경도를 받아와서 주변에 띄울 비둘기 리스트를 리턴하기(GET)
+
+    // 비둘기 터치 시, 해당 게시글의 고유 번호를 받아와서 게시글의 상세내용을 리턴하기(GET)
+
 }
