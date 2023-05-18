@@ -21,7 +21,10 @@ public class Post {
     private Double latitude;    // 게시글의 위도
     private Double longitude;   // 게시글의 경도
     private String placename;   // 게시글의 장소명
-    private List<String> liked; // 좋아요를 누른 회원들의 고유 순번 리스트
+    private List<String> love; // 하트를 누른 회원들의 고유 순번 리스트 (1)
+    private List<String> like; // 따봉을 누른 회원들의 고유 순번 리스트 (2)
+    private List<String> wow; // 놀라워요를 누른 회원들의 고유 순번 리스트 (3)
+    private List<String> fun; // 웃겨요를 누른 회원들의 고유 순번 리스트 (4)
     private Boolean secret;     // 비밀글 여부 (true면 작성자만 볼 수 있는 게시글임)
 
     public Post (String writer, String title, List<String> files, Double latitude, Double longitude, String placename, Boolean secret) {
@@ -31,14 +34,17 @@ public class Post {
         this.latitude = latitude;
         this.longitude = longitude;
         this.placename = placename;
-        this.liked = new ArrayList<>();
+        this.love = new ArrayList<>();
+        this.like = new ArrayList<>();
+        this.wow = new ArrayList<>();
+        this.fun = new ArrayList<>();
         this.secret = secret;
     }
 
-    // 좋아요 추가
-    public void addLike (String memberSequence) {
+    // 반응 추가
+    public void addLike (String memberSequence, Integer which) {
         // 좋아요를 누른 회원의 sequence를 받아와서, liked에 추가
-        liked.add(memberSequence);
+
     }
 
 }
