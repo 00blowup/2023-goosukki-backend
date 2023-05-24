@@ -3,6 +3,7 @@ package capstone.part1.goosukki.post.controller;
 import capstone.part1.goosukki.photo.service.PhotoService;
 import capstone.part1.goosukki.post.dto.PostCreateRequestDto;
 import capstone.part1.goosukki.post.dto.PostCreateResponseDto;
+import capstone.part1.goosukki.post.dto.PostRecentResponseDto;
 import capstone.part1.goosukki.post.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -33,8 +34,12 @@ public class PostController {
         return postService.addPost(fileSequences, requestDto);
     }
 
-    // AR 카메라 실행 시, 유저의 현재 위도&경도를 받아와서 주변에 띄울 비둘기 리스트를 리턴하기(GET)
-
-    // 비둘기 터치 시, 해당 게시글의 고유 번호를 받아와서 게시글의 상세내용을 리턴하기(GET)
+    // 비둘기 터치 시 가장 최근 게시글의 내용을 Firebase에서 꺼내와서 유니티에게 줌
+    @GetMapping
+    @ResponseStatus(value = HttpStatus.OK)
+    public PostRecentResponseDto recentPost() {
+        //PostService의 recent 함수를 실행하여 게시글의 제목, 사진 리스트, 캡션 리스트, 위치명, 작성자 닉네임, 작성자 프로필을 담은 DTO를 리턴
+        return postService.recent();
+    }
 
 }
