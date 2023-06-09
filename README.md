@@ -1,11 +1,13 @@
 # 2023-goosukki-backend
-## '구석기'의 백엔드 서버 코드
+'구석기'의 백엔드 서버 코드
+
+### 기술 개요
 - Java 및 Spring을 사용
-- 원격 데이터베이스로서 Firebase의 Firestore Database 사용. 파일 저장소로서 Firebase Storage 사용.
-- 배포 서버로서 AWS의 EC2 인스턴스 사용.
+- 원격 데이터베이스로서 Firebase의 Firestore Database 사용. 파일 저장소로서 Firebase Storage 사용
+- 배포 서버로서 AWS의 EC2 인스턴스 사용
 
 
-## 개발 현황
+### 개발 현황
 
 - 파이어베이스 연동 완료
   - JSON 데이터 관리를 위한 Firestore Database 연동 완료
@@ -21,9 +23,9 @@
 - 게시글 조회 기능 구현 완료
 <br><br>
 
-## 서버를 로컬에서 실행하는 법 (배포 이전에 해당함. 이제는 AWS EC2로 배포한 Base URL로 접근하면 됨.)
+### 서버를 로컬에서 실행하는 법 (배포 이전에 해당함. 이제는 AWS EC2로 배포한 Base URL로 접근하면 됨.)
 해당 리포지토리의 코드를 클론받아서 로컬에 저장하세요. 그 후 다음의 과정을 따라하세요.<br>
-### 시크릿 키 파일 다운받기
+#### 시크릿 키 파일 다운받기
 파이어베이스 콘솔에서 시크릿 키 파일을 다운받아 최상위폴더에 넣어줘야 실행이 됩니다!!<br>
 이 파일은 타인에게 노출되면 안 되기 때문에 깃허브에 올려지지 않습니다. 깃이그노어에도 포함되어있습니다.<br>
 그래서 여러분이 직접 파이어베이스 콘솔에서 받아오셔야 합니다.<br>
@@ -34,7 +36,7 @@
 <img width="80%" src="https://i.imgur.com/v5QlX11.jpg"/></br>
 받으셨다면 파일의 이름을 serviceAccountKey.json 으로 바꾸어 최상위폴더에 넣어주세요!!!!!<br>
 <br><br>
-### 서버 실행하기
+#### 서버 실행하기
 IntelliJ에서 해당 리포지토리를 연다.<br>
 File>Settings...를 누른다.<br>
 ![image](https://user-images.githubusercontent.com/87855493/236627678-3352248c-12a7-4194-967f-501381f1ddb6.png)
